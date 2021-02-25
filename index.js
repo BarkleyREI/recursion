@@ -12,7 +12,7 @@ const _ = require('lodash');
 const requiredConfig = {
 	styles: [
 		'default',
-		'/recursion-theme/recur.css'
+		'/theme/rei-cursion/recur.css'
 	],
 	scripts: ['default']
 };
@@ -59,7 +59,7 @@ module.exports = (options, mode) => {
 	}
 
 	config.nav = config.nav || ['search', 'components', 'docs', 'information'];
-	config.favicon = config.favicon || '/recursion-theme/favicon.ico';
+	config.favicon = config.favicon || '/theme/rei-cursion/favicon.ico';
 
 	/*
 	 * Configure the theme
@@ -74,7 +74,7 @@ module.exports = (options, mode) => {
 	/*
 	 * Specify the static assets directory that contains the custom stylesheet.
 	 */
-	subTheme.addStatic(__dirname + '/assets', '/recursion-theme');
+	subTheme.addStatic(__dirname + '/assets', '/theme/rei-cursion');
 
 	/*
 	 * Export the customised theme instance so it can be used in Fractal projects
