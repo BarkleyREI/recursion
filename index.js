@@ -31,16 +31,7 @@ module.exports = (options, mode) => {
 		scripts: scripts,
 		format: 'json',
 		highlightStyles: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/default.min.css',
-		information: [
-			{
-				'label': 'Last Compiled',
-				'value': new Date(),
-				'type': 'time',
-				'format': (value) => {
-					return '<br/>' + value.toLocaleString('en');
-				}
-			}
-		]
+		information: []
 	}, _.clone(options || {}));
 
 	config.panels = config.panels || ['notes', 'info'];
