@@ -4,6 +4,12 @@
 
 <div class="Document">
 
+    {% if frctl.theme.get('logo') %}
+    <div class="Document-logo">
+        <img src="{{ frctl.theme.get('logo') }}" alt="Logo" />
+    </div>
+    {% endif %}
+
     <div class="Document-header">
         {% block docHeader %}
         <h1 class="Document-title">{{ page.title }}</h1>
