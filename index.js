@@ -49,7 +49,7 @@ module.exports = (options, mode) => {
 		config.panels = config.devpanels;
 	}
 
-	config.nav = config.nav || ['search', 'components', 'docs', 'information'];
+	config.nav = config.nav || ['search', 'docs', 'components', 'information'];
 	config.favicon = config.favicon || '/themes/rei-cursion/favicon.ico';
 
 	/*

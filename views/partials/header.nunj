@@ -7,5 +7,5 @@
             {% include 'icons/burger.svg' %}
         </div>
     </button>
-    <a href="{{ path('/') }}" data-barkleyrei="yes" class="Header-title" data-pjax><span>{{ frctl.get('project.title') | default('') }}</span>Pattern &amp; Component Library</a>
+    <a href="{{ path('/') }}" data-barkleyrei="yes" class="Header-title" data-pjax><span>{{ frctl.get('project.title') | default('') }}</span>&nbsp;Pattern &amp; Component Library</a>
 </div>
