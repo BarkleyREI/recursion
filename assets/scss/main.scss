@@ -27,7 +27,12 @@ $transition-time: 0.3s;
 }
 
 .Document-logo {
-	display: none; // Temporary, remove when ready to style
+	width: 215px;
+	margin-bottom: 1rem;
+
+	img {
+		width: 100%;
+	}
 }
 
 .Document-header {
@@ -58,6 +63,10 @@ $transition-time: 0.3s;
 	[dir=ltr] & {
 		border-color: $gray;
 	}
+}
+
+.Navigation-panel--variants .Tree-title {
+	white-space: normal;
 }
 
 .Header-button {
@@ -115,7 +124,7 @@ $transition-time: 0.3s;
 }
 
 .Tree-header {
-	margin-bottom: 10px;
+	margin-bottom: 12px;
 }
 
 .Tree-title {
@@ -276,6 +285,13 @@ $transition-time: 0.3s;
 		right: 0;
 		top: 50%;
 		transform: translateY(-50%);
+	}
+
+	&:link,
+	&:visited,
+	&:hover,
+	&:active {
+		color: #000000;
 	}
 }
 
