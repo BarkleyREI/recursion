@@ -52,6 +52,21 @@ $transition-time: 0.3s;
 
 .Prose {
 	max-width: 852px;
+	font-family: $mulish;
+
+	p {
+		font-size: 18px;
+		line-height: (30 / 18);
+	}
+
+	.intro {
+		font-size: 22px;
+		line-height: (34 / 22);
+	}
+
+	.compiled {
+		font-size: 14px;
+	}
 }
 
 .Frame-panel--sidebar {
