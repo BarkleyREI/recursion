@@ -89,6 +89,11 @@ $transition-time: 0.3s;
 	}
 }
 
+::-webkit-scrollbar {
+	height: 0;
+	width: 0
+}
+
 .Navigation-panel--variants .Tree-title {
 	white-space: normal;
 }
@@ -208,6 +213,7 @@ $transition-time: 0.3s;
 	padding: 12px 15px;
 
 	&[aria-expanded='true'] {
+		font-weight: 700;
 
 		.chevron {
 			transform: rotate(180deg);
