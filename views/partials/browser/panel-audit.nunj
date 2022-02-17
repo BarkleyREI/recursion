@@ -1,0 +1,126 @@
+<div class="Browser-panel" data-role="tab-panel" id="browser-{{ entity.id }}-panel-audit">
+	<div id="axe-results" class="axe-results">
+		<p class="counts">
+			<span class="count error">
+				<span id="axe-errors">0</span> errors
+			</span>
+				<span class="count warning">
+				<span id="axe-warnings">0</span> warnings
+			</span>
+				<span class="count notice">
+				<span id="axe-notices">0</span> notices
+			</span>
+		</p>
+		<ul class="clean-list results-list" id="axe-results-list"></ul>
+	</div>
+	<script type="text/javascript">
+
+		function t(s, d) {
+			var p;
+			for (p in d) {
+				if (d.hasOwnProperty(p)) {
+					s = s.replace(new RegExp('{' + p + '}', 'g'), d[p]);
+				}
+			}
+			return s;
+		}
+
+		function escapeHtml(text) {
+			var map = {
+				'&': '&amp;',
+				'<': '&lt;',
+				'>': '&gt;',
+				'"': '&quot;',
+				'\'': '&#039;'
+			};
+
+			return text.replace(/[&<>"']/g, function (m) {
+				return map[m];
+			});
+		}
+
+		window.addEventListener('message', function (event) {
+
+			// console.log(event, event.origin.search(/http:\/\/localhost:/));
+
+			if (event.origin.search(/http:\/\/localhost:/) === -1)
+				return;
+
+			if (typeof event.data.violations !== 'undefined') {
+				var violations = event.data.violations;
+
+				if (violations.length > 0) {
+
+					var errors = 0;
+					var warnings = 0;
+					var notices = 0;
+
+					var results = '';
+
+					for (var k in violations) {
+						if (violations.hasOwnProperty(k)) {
+
+							var _vv = violations[k];
+							var label = 'Notice';
+							var status = 'notice';
+
+							if (_vv.impact === 'critical') {
+								label = 'Error';
+								status = 'error';
+								errors += 1;
+							} else if (_vv.impact === 'moderate') {
+								label = 'Warning';
+								status = 'warning';
+								warnings += 1;
+							} else {
+								notices += 1;
+							}
+
+							var nodes = '';
+							if (typeof _vv.nodes !== 'undefined') {
+								for (var n in _vv.nodes) {
+									if (_vv.nodes.hasOwnProperty(n)) {
+
+										nodes += escapeHtml(_vv.nodes[n].html);
+
+									}
+								}
+							}
+
+							results += t('' +
+								'<li class=\'result {status}\'>' +
+								'   <h2>{label}: {description}</h2>' +
+								'   <p>{id}</p>' +
+								'   <pre>{nodes}</pre>' +
+								'   <p><a href=\'{helpurl}\' target=\'_blank\'>{help}</a></p>' +
+								'</li>', {
+								'status': status,
+								'label': label,
+								'description': _vv.description,
+								'helpurl': _vv.helpUrl,
+								'help': _vv.help,
+								'id': _vv.id,
+								'nodes': nodes
+							});
+
+						}
+					}
+
+					// console.log('errors', errors);
+					// console.log('warnings', warnings);
+					// console.log('notices', notices);
+
+					document.querySelectorAll('#axe-errors')[0].innerHTML = errors;
+					document.querySelectorAll('#axe-warnings')[0].innerHTML = warnings;
+					document.querySelectorAll('#axe-notices')[0].innerHTML = notices;
+
+					document.querySelectorAll('#axe-results-list')[0].innerHTML = results;
+
+				}
+
+			}
+
+		}, false);
+
+	</script>
+</div>

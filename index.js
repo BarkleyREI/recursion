@@ -35,7 +35,7 @@ module.exports = (options, mode) => {
 	}, _.clone(options || {}));
 
 	config.panels = config.panels || ['notes', 'info'];
-	config.devpanels = config.devpanels || ['notes', 'html', 'info', 'context', 'resources'];
+	config.devpanels = config.devpanels || ['info', 'notes', 'html', 'context', 'audit'];
 
 	if (mode !== 'development') {
 		// Production settings
