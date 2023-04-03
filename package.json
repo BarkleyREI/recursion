@@ -1,7 +1,7 @@
 {
   "name": "rei-cursion",
   "version": "1.2.0",
-  "description": "BarkleyREI Fractal Theme",
+  "description": "Barkley Fractal Theme",
   "license": "MIT",
   "main": "index.js",
   "dependencies": {
