@@ -14,7 +14,7 @@
 
 		<div class="brand">
 			{% include 'icons/rocket.svg' %}
-			<span class="brand__group">Created by BarkleyREI</span>
+			<span class="brand__group">Created by Barkley</span>
 		</div>
 
 	</div>
