@@ -1,6 +1,6 @@
 # REI-cursion
 
-BarkleyREI's Fractal theme based on Mandelbrot.
+Barkley's Fractal theme based on Mandelbrot.
 
 ## Theme settings
 
